@@ -1,5 +1,3 @@
-#define INC_SHARED
-
 #define WHITE 1
 #define BLUE 2
 #define ORANGE 3
@@ -7,12 +5,12 @@
 #define GREEN 5
 #define YELLOW 6
 
-int TOP = WHITE;
-int FRONT = BLUE;
-int RIGHT = ORANGE;
-int LEFT = RED;
-int BACK = GREEN;
-int BOTTOM = YELLOW;
+char TOP = WHITE;
+char FRONT = BLUE;
+char RIGHT = ORANGE;
+char LEFT = RED;
+char BACK = GREEN;
+char BOTTOM = YELLOW;
 
 struct Edge{
 	char prm, sec;
