@@ -34,3 +34,8 @@ struct Cube{
 	Inner mid;
 	Outer bot;
 };
+
+/* TODO:
+ * 1) Implement telementry (reor then print)
+ * 2) Verify rotations and telementry
+*/
