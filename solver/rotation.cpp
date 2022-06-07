@@ -58,8 +58,8 @@ void rotate(Cube& cube, char side, bool inv){
 		adcycle(cube.top.edges[2].sec, cube.mid.edges[2].prm, cube.bot.edges[2].sec, cube.mid.edges[3].prm);
 		adcycle(cube.top.corners[3].sec, cube.top.corners[2].sec, cube.bot.corners[2].sec, cube.bot.corners[3].sec);
 		adcycle(cube.top.edges[2].prm, cube.mid.edges[2].sec, cube.bot.edges[2].prm, cube.mid.edges[3].sec);
-		adcycle(cube.top.corners[3].prm, cube.top.corners[2].sec, cube.bot.corners[2].prm, cube.bot.corners[3].sec);
-		adcycle(cube.top.corners[3].sec, cube.top.corners[2].prm, cube.bot.corners[2].sec, cube.bot.corners[3].prm);
+		adcycle(cube.top.corners[3].prm, cube.top.corners[2].sid, cube.bot.corners[2].prm, cube.bot.corners[3].sid);
+		adcycle(cube.top.corners[3].sid, cube.top.corners[2].prm, cube.bot.corners[2].sid, cube.bot.corners[3].prm);
 	}
 
 	else if (side == BLUE && inv){
@@ -101,19 +101,19 @@ void rotate(Cube& cube, char side, bool inv){
 		dacycle(cube.top.corners[2].prm, cube.top.corners[1].sec, cube.bot.corners[1].prm, cube.bot.corners[2].sec);
 		dacycle(cube.top.corners[2].sec, cube.top.corners[1].prm, cube.bot.corners[1].sec, cube.bot.corners[2].prm);
 	}
-
+	
 	else if (side == RED && !inv){
-		adcycle(cube.top.edges[3].sec, cube.mid.edges[3].sec, cube.bot.edges[3].sec, cube.mid.edges[1].sec);
-		adcycle(cube.top.corners[0].sid, cube.top.corners[3].sec, cube.bot.corners[3].sid, cube.bot.corners[0].sid);
-		adcycle(cube.top.edges[3].prm, cube.mid.edges[3].prm, cube.bot.edges[3].prm, cube.mid.edges[1].prm);
+		adcycle(cube.top.edges[3].sec, cube.mid.edges[3].sec, cube.bot.edges[3].sec, cube.mid.edges[0].sec);
+		adcycle(cube.top.corners[0].sid, cube.top.corners[3].sid, cube.bot.corners[3].sid, cube.bot.corners[0].sid);
+		adcycle(cube.top.edges[3].prm, cube.mid.edges[3].prm, cube.bot.edges[3].prm, cube.mid.edges[0].prm);
 		adcycle(cube.top.corners[0].prm, cube.top.corners[3].sec, cube.bot.corners[3].prm, cube.bot.corners[0].sec);
 		adcycle(cube.top.corners[0].sec, cube.top.corners[3].prm, cube.bot.corners[3].sec, cube.bot.corners[0].prm);
 	}
 
 	else{
-		dacycle(cube.top.edges[3].sec, cube.mid.edges[3].sec, cube.bot.edges[3].sec, cube.mid.edges[1].sec);
-		dacycle(cube.top.corners[0].sid, cube.top.corners[3].sec, cube.bot.corners[3].sid, cube.bot.corners[0].sid);
-		dacycle(cube.top.edges[3].prm, cube.mid.edges[3].prm, cube.bot.edges[3].prm, cube.mid.edges[1].prm);
+		dacycle(cube.top.edges[3].sec, cube.mid.edges[3].sec, cube.bot.edges[3].sec, cube.mid.edges[0].sec);
+		dacycle(cube.top.corners[0].sid, cube.top.corners[3].sid, cube.bot.corners[3].sid, cube.bot.corners[0].sid);
+		dacycle(cube.top.edges[3].prm, cube.mid.edges[3].prm, cube.bot.edges[3].prm, cube.mid.edges[0].prm);
 		dacycle(cube.top.corners[0].prm, cube.top.corners[3].sec, cube.bot.corners[3].prm, cube.bot.corners[0].sec);
 		dacycle(cube.top.corners[0].sec, cube.top.corners[3].prm, cube.bot.corners[3].sec, cube.bot.corners[0].prm);
 	}
