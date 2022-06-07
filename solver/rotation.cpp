@@ -118,3 +118,9 @@ void rotate(Cube& cube, char side, bool inv){
 		dacycle(cube.top.corners[0].sec, cube.top.corners[3].prm, cube.bot.corners[3].sec, cube.bot.corners[0].prm);
 	}
 }//-FOLD
+
+void rotateSeq(Cube& cube, Rotation* seq){
+	for (Rotation* i = seq; i->side != 0; i++){
+		rotate(cube, i->side, i->inv);	
+	}
+}

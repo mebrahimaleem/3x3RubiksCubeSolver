@@ -105,6 +105,17 @@ void buildCube(Cube& cube, char* a1, char* a2, char* a3, char* a4, char* a5, cha
 	cube.bot.corners[0].prm = bottom[6];
 }//-FOLD
 
+struct Rotation{
+	char side;
+	char inv;
+};
+
+struct Command{
+	bool reor = false;
+	char side, align, inv;
+};
+//-FOLD
+
 namespace Telementry{
 	string getName(char col){
 		if (col == WHITE) return "WHITE";
