@@ -1,11 +1,11 @@
 #include "shared/shared.cpp"
+#include "shared/search.cpp"
 #include "solver/rotation.cpp"
+#include "solver/whitecross.cpp"
 
 using namespace std;
 
 int main(){
-	Cube cube;
-	
 	char* white = new char[9] {WHITE, WHITE, WHITE, WHITE, WHITE, WHITE, WHITE, WHITE, WHITE};
 	char* yellow = new char[9] {YELLOW, YELLOW, YELLOW, YELLOW, YELLOW, YELLOW, YELLOW, YELLOW, YELLOW};
 	char* blue = new char[9] {BLUE, BLUE, BLUE, BLUE, BLUE, BLUE, BLUE, BLUE, BLUE};
@@ -13,11 +13,13 @@ int main(){
 	char* orange = new char[9] {ORANGE, ORANGE, ORANGE, ORANGE, ORANGE, ORANGE, ORANGE, ORANGE, ORANGE};
 	char* red = new char[9] {RED, RED, RED, RED, RED, RED, RED, RED, RED};
 	
-	Rotation* moves = new Rotation[13] {{TOP, 0}, {FRONT, 0}, {RIGHT, 0}, {LEFT, 0}, {BACK, 0}, {BOTTOM, 0},
-		{BOTTOM, 1}, {BACK, 1}, {LEFT, 1}, {RIGHT, 1}, {FRONT, 1}, {TOP, 1}, {0, 0}};
-	buildCube(cube, white, blue, orange, red, green, yellow);
-	rotateSeq(cube, moves);
-	Telementry::printCube(cube);
+	Cube cube;
+	vector<Rotation*> commands;
 
+	buildCube(cube, white, yellow, blue, green, orange, red);
+
+	WC::WC(cube, commands);
+
+	Telementry::printCube(cube);
 	return 0;
 }

@@ -6,6 +6,7 @@
 #define YELLOW 6
 
 #include <iostream>
+#include <vector>
 
 using namespace std;
 
@@ -109,11 +110,6 @@ struct Rotation{
 	char side;
 	char inv;
 };
-
-struct Command{
-	bool reor = false;
-	char side, align, inv;
-};
 //-FOLD
 
 namespace Telementry{
@@ -208,6 +204,6 @@ namespace Telementry{
 
 	void printCube(Cube cube){
 		for (int i = 1; i < 7; i++) printSide(cube, i);
-		cout << '\n';
+		cout << "----------\t----------\t----------\n\n\n";
 	}
 }//-FOLD
