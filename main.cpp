@@ -1,7 +1,12 @@
+//Include all local files
 #include "shared/shared.cpp"
 #include "shared/search.cpp"
 #include "solver/rotation.cpp"
 #include "solver/whitecross.cpp"
+#include "solver/whiteface.cpp"
+#include "solver/midedges.cpp"
+#include "solver/yellowscross.cpp"
+#include "shared/misc.cpp"
 
 using namespace std;
 
@@ -14,12 +19,23 @@ int main(){
 	char* red = new char[9] {RED, RED, RED, RED, RED, RED, RED, RED, RED};
 	
 	Cube cube;
+	Cube rest;
 	vector<Rotation*> commands;
 
 	buildCube(cube, white, yellow, blue, green, orange, red);
+	misc::shuffle(cube, 100);
+	misc::copyCube(cube, rest);
 
 	WC::WC(cube, commands);
+	WF::WF(cube, commands);
+	ME::ME(cube, commands);
+	YSC::YSC(cube, commands);
 
 	Telementry::printCube(cube);
+
+	for (auto i : commands)
+		rotateSeq(rest, i);
+
+	Telementry::printCube(rest);
 	return 0;
 }

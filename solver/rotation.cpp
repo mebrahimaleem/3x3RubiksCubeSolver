@@ -1,6 +1,8 @@
+//swaps values
 #define adcycle(a, b, c, d) t=d;d=c;c=b;b=a;a=t
 #define dacycle(a, b, c, d) t=a;a=b;b=c;c=d;d=t
 
+//Re-Orient the cube, works by changing TOP, BOTTOM, FRONT, Etc. (Does not actually modify the cube data)
 void reor(char top, char front){
 	TOP = top;
 	FRONT = front;
@@ -18,6 +20,7 @@ void reor(char top, char front){
 	LEFT = (RIGHT == WHITE ? YELLOW : (RIGHT == YELLOW ? WHITE : (RIGHT == BLUE ? GREEN : (RIGHT == GREEN ? BLUE : (RIGHT == RED ? ORANGE : RED)))));
 }//-FOLD
 
+//Rotates a face
 void rotate(Cube& cube, char side, bool inv){
 	char t;
 
@@ -119,6 +122,7 @@ void rotate(Cube& cube, char side, bool inv){
 	}
 }//-FOLD
 
+//Executes a series or rotations from pointer, end of rotation series is denoted by two zero bytes
 void rotateSeq(Cube& cube, Rotation* seq){
 	for (Rotation* i = seq; i->side != 0; i++){
 		rotate(cube, i->side, i->inv);	

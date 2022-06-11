@@ -1,7 +1,9 @@
 using namespace std;
 
+//namespace containing all function for solving the white cross
 namespace WC{
-	void WCstep(Cube& cube, char col, vector<Rotation*> commands){
+	//Solve a single white cross piece
+	void WCstep(Cube& cube, char col, vector<Rotation*>& commands){
 		char align;
 state1:
 		for (Edge* i = cube.top.edges; i < cube.top.edges + 4; i++){
@@ -47,22 +49,24 @@ state4:
 					goto state5;
 				}
 				if (RIGHT == align){
+					rotateSeq(cube, new Rotation[2] {{BOTTOM, 1}, {0, 0}});
+					commands.push_back(new Rotation[2] {{BOTTOM, 1}, {0, 0}});
+					goto state5;
+				}
+				else{
 					rotateSeq(cube, new Rotation[2] {{BOTTOM, 0}, {0, 0}});
 					commands.push_back(new Rotation[2] {{BOTTOM, 0}, {0, 0}});
 					goto state5;
 				}
-				else{
-					rotateSeq(cube, new Rotation[2] {{BOTTOM, 1}, {0, 0}});
-					commands.push_back(new Rotation[2] {{BOTTOM, 1}, {0, 0}});
-				}
 			}
 		}	
 state5:
-		rotateSeq(cube, new Rotation[3] {{BOTTOM, 0}, {BOTTOM, 0}, {0, 0}});
-		commands.push_back(new Rotation[3] {{BOTTOM, 0}, {BOTTOM, 0}, {0, 0}});
+		rotateSeq(cube, new Rotation[3] {{FRONT, 0}, {FRONT, 0}, {0, 0}});
+		commands.push_back(new Rotation[3] {{FRONT, 0}, {FRONT, 0}, {0, 0}});
 	}
 	
-	void WC(Cube& cube, vector<Rotation*> commands){
+	//Solve the entire white cross
+	void WC(Cube& cube, vector<Rotation*>& commands){
 		WCstep(cube, BLUE, commands);
 		WCstep(cube, ORANGE, commands);
 		WCstep(cube, GREEN, commands);

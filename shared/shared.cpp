@@ -1,3 +1,4 @@
+//Assign each color a number 1..6
 #define WHITE 1
 #define BLUE 2
 #define ORANGE 3
@@ -5,11 +6,16 @@
 #define GREEN 5
 #define YELLOW 6
 
+//Include standard libraries
 #include <iostream>
 #include <vector>
+#include <stdlib.h>
+#include <time.h>
+#include <algorithm>
 
 using namespace std;
 
+//Set initial orientation (can be changed from reor)
 char TOP = WHITE;
 char FRONT = BLUE;
 char RIGHT = ORANGE;
@@ -17,6 +23,7 @@ char LEFT = RED;
 char BACK = GREEN;
 char BOTTOM = YELLOW;
 
+//Define cube data structure
 struct Edge{
 	char prm, sec;
 };
@@ -41,6 +48,7 @@ struct Cube{
 };
 //-FOLD
 
+//Makes a cube given 6 arrays representing the faces of the cube
 void buildCube(Cube& cube, char* a1, char* a2, char* a3, char* a4, char* a5, char* a6){	
 	char* top, *front, *right, *left, *back, *bottom;
 	
@@ -106,12 +114,14 @@ void buildCube(Cube& cube, char* a1, char* a2, char* a3, char* a4, char* a5, cha
 	cube.bot.corners[0].prm = bottom[6];
 }//-FOLD
 
+//Struture containaing information to rotate
 struct Rotation{
 	char side;
 	char inv;
 };
 //-FOLD
 
+//Contains functions for getting information on the cube
 namespace Telementry{
 	string getName(char col){
 		if (col == WHITE) return "WHITE";
