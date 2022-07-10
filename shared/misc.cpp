@@ -61,6 +61,10 @@ namespace misc{
 				case 'b':
 					rotate(cube, BACK, inv);
 					break;
+				case 's':
+					cin >> t >> f;
+					reor(t, f);
+					break;
 				default:
 					cout << "INVALID\n";
 					break;
