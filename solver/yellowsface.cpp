@@ -32,23 +32,23 @@ namespace YSF{
 			
 			if ((cube.bot.corners[0].prm == YELLOW && cube.bot.corners[2].prm == YELLOW) || (cube.bot.corners[1].prm == YELLOW && cube.bot.corners[3].prm == YELLOW)){
 				if (cube.bot.corners[0].sid == YELLOW){
-					reor(YELLOW, GREEN);
+					reor(YELLOW, RED);
 					rotateSeq(cube, new Rotation[9] {{RIGHT, 0}, {TOP, 0}, {RIGHT, 1}, {TOP, 0}, {RIGHT, 0}, {TOP, 0}, {TOP, 0}, {RIGHT, 1}, {0, 0}});
 					commands.push_back(new Rotation[9] {{RIGHT, 0}, {TOP, 0}, {RIGHT, 1}, {TOP, 0}, {RIGHT, 0}, {TOP, 0}, {TOP, 0}, {RIGHT, 1}, {0, 0}});
 				}
 				if (cube.bot.corners[1].sec == YELLOW){
+					reor(YELLOW, GREEN);
+					rotateSeq(cube, new Rotation[9] {{RIGHT, 0}, {TOP, 0}, {RIGHT, 1}, {TOP, 0}, {RIGHT, 0}, {TOP, 0}, {TOP, 0}, {RIGHT, 1}, {0, 0}});
+					commands.push_back(new Rotation[9] {{RIGHT, 0}, {TOP, 0}, {RIGHT, 1}, {TOP, 0}, {RIGHT, 0}, {TOP, 0}, {TOP, 0}, {RIGHT, 1}, {0, 0}});
+				}
+
+				if (cube.bot.corners[2].sid == YELLOW){
 					reor(YELLOW, ORANGE);
 					rotateSeq(cube, new Rotation[9] {{RIGHT, 0}, {TOP, 0}, {RIGHT, 1}, {TOP, 0}, {RIGHT, 0}, {TOP, 0}, {TOP, 0}, {RIGHT, 1}, {0, 0}});
 					commands.push_back(new Rotation[9] {{RIGHT, 0}, {TOP, 0}, {RIGHT, 1}, {TOP, 0}, {RIGHT, 0}, {TOP, 0}, {TOP, 0}, {RIGHT, 1}, {0, 0}});
 				}
 
-				if (cube.bot.corners[3].sid == YELLOW){
-					reor(YELLOW, BLUE);
-					rotateSeq(cube, new Rotation[9] {{RIGHT, 0}, {TOP, 0}, {RIGHT, 1}, {TOP, 0}, {RIGHT, 0}, {TOP, 0}, {TOP, 0}, {RIGHT, 1}, {0, 0}});
-					commands.push_back(new Rotation[9] {{RIGHT, 0}, {TOP, 0}, {RIGHT, 1}, {TOP, 0}, {RIGHT, 0}, {TOP, 0}, {TOP, 0}, {RIGHT, 1}, {0, 0}});
-				}
-
-				reor(YELLOW, RED);
+				reor(YELLOW, BLUE);
 				rotateSeq(cube, new Rotation[9] {{RIGHT, 0}, {TOP, 0}, {RIGHT, 1}, {TOP, 0}, {RIGHT, 0}, {TOP, 0}, {TOP, 0}, {RIGHT, 1}, {0, 0}});
 				commands.push_back(new Rotation[9] {{RIGHT, 0}, {TOP, 0}, {RIGHT, 1}, {TOP, 0}, {RIGHT, 0}, {TOP, 0}, {TOP, 0}, {RIGHT, 1}, {0, 0}});
 			}

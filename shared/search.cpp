@@ -42,3 +42,22 @@ bool verifyCorner(Corner c, char s1, char s2, char s3){
 	if (b[2] == s1 || b[2] == s2 || b[2] == s3) f++;
 	return f == 3;
 }
+
+char oppositeOf(char c){
+	switch (c){
+		case WHITE:
+			return YELLOW;
+		case YELLOW:
+			return WHITE;
+		case BLUE:
+			return GREEN;
+		case GREEN:
+			return BLUE;
+		case RED:
+			return ORANGE;
+		case ORANGE:
+			return RED;
+		default:
+			return 0;
+	}
+}
